@@ -8,5 +8,6 @@ def format_task(task):
 
 def filter_tasks(tasks, show_done=True):
     if show_done:
+        pending = [t for t in tasks if not t["done"]]
         return tasks
     return [t for t in tasks if not t["done"]]
