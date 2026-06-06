@@ -3,7 +3,8 @@
 def format_task(task):
     status   = "[x]" if task["done"] else "[ ]"
     priority = task.get("priority", "normal")
-    return f"{status} [{task['priority']}] #{task['id']} - {task['title']}"
+    title    = task.get("title") or "Sem título"
+    return f"{status} [{priority}] #{task['id']} - {title}"
 
 def filter_tasks(tasks, show_done=True):
     if show_done:
