@@ -1,8 +1,10 @@
 # Zona de conflito intencional: ambos os devs modificarão format_task e filter_tasks
 
 def format_task(task):
-    status = "[ ]"
-    return f"{status} [{task['priority']}] #{task['id']} - {task['title']}"
+    status   = "[x]" if task["done"] else "[ ]"
+    priority = task.get("priority", "normal")
+    title    = task.get("title") or "Sem título"
+    return f"{status} [{priority}] #{task['id']} - {title}"
 
 def filter_tasks(tasks, show_done=True):
     if show_done:
