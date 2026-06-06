@@ -7,8 +7,4 @@ def format_task(task):
     return f"{status} [{priority}] #{task['id']} - {title}"
 
 def filter_tasks(tasks, show_done=True):
-    if show_done:
-        pending = [t for t in tasks if not t["done"]]
-        done    = [t for t in tasks if t["done"]]
-        return pending + done
-    return [t for t in tasks if not t["done"]]
+    return tasks
